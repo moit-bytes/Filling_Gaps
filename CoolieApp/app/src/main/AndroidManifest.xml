@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.moitbytes.coolieapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CoolieApp"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ShowQRActivity"></activity>
+        <activity android:name=".scannerView" />
+        <activity android:name=".ScanQrActivity" />
+        <activity android:name=".User.CoolieBookingActivity" />
+        <activity android:name=".ContactSupport" />
+        <activity android:name=".UserBookingActivity" />
+        <activity android:name=".User.AvailableCoolies" />
+        <activity android:name=".User.Report_Issue_Activity" />
+        <activity android:name=".User.BookWheelChairActivity" />
+        <activity android:name=".User.CheckPNRActivity" />
+        <activity android:name=".User.BookCoolieActivity" />
+        <activity android:name=".Coolie.Coolie_Dashboard" />
+        <activity android:name=".User_Profile" />
+        <activity android:name=".User.User_Dashboard" />
+        <activity android:name=".Register.Coolie_User_Details" />
+        <activity android:name=".Login.LoginActivity" />
+        <activity android:name=".UI.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
