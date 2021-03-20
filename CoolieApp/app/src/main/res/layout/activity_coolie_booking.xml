@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/white"
+    tools:context=".User.CoolieBookingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:onClick="GoBackToCoolieSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_left_arrow"
+            android:backgroundTint="@color/white"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booking Details"
+            android:textSize="18sp"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/order_type"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Booking Type: "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:background="@android:drawable/editbox_background"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Order Details: "
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                android:padding="5dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/coolieBaggage">
+
+                <TextView
+                    android:id="@+id/coolie_name"
+                    android:layout_marginTop="5dp"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Coolie Name: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@android:drawable/editbox_background"
+                    />
+
+                <TextView
+                    android:id="@+id/n_of_trolley"
+                    android:layout_marginTop="5dp"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Number of trolley: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@android:drawable/editbox_background"
+                    />
+
+                <TextView
+                    android:id="@+id/n_of_container"
+                    android:layout_marginTop="5dp"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Number of Container: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@android:drawable/editbox_background"
+                    />
+
+                <TextView
+                    android:id="@+id/n_of_bags"
+                    android:layout_marginTop="5dp"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Number of Bags: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@android:drawable/editbox_background"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/n_of_wheelchair"
+                android:layout_marginTop="5dp"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Number of Wheelchairs: "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:background="@android:drawable/editbox_background"
+                />
+
+
+            <TextView
+                android:id="@+id/train_name"
+                android:layout_marginTop="5dp"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Train Name: "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:background="@android:drawable/editbox_background"
+                />
+
+            <TextView
+                android:id="@+id/order_time"
+                android:layout_marginTop="5dp"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Order Time: "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:background="@android:drawable/editbox_background"
+                />
+
+            <TextView
+                android:id="@+id/order_date"
+                android:layout_marginTop="5dp"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Order Date: "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:background="@android:drawable/editbox_background"
+                />
+
+            <TextView
+                android:id="@+id/station_name"
+                android:layout_marginTop="5dp"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Station-name : "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:background="@android:drawable/editbox_background"
+                />
+
+            <TextView
+                android:id="@+id/book_amount"
+                android:layout_marginTop="5dp"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amount: ₹ "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:background="@android:drawable/editbox_background"
+                />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/order_complete_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your Order is Confirmed. You will soon receive a message containing the details."
+                    android:textColor="@color/green"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:onClick="exitFromHere"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="Exit"
+                    android:textAllCaps="false"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:background="@color/black"
+                    />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="Confirm and Pay"
+                android:textAllCaps="false"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:background="@color/green"
+                />
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+    
+
+</LinearLayout>

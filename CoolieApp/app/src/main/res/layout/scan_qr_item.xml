@@ -1,0 +1,213 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/CurrentOrderCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="12dp"
+    android:background="@color/white"
+    app:cardElevation="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="Order ID"/>
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:paddingRight="20dp"
+                android:text="Customer Name"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/order_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:text="19231"/>
+
+            <TextView
+                android:id="@+id/customer_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:textSize="16sp"
+                android:gravity="right"
+                android:paddingRight="20dp"
+                android:text="Mohit Kumar"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Order Details:"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="monospace"/>
+
+        <TextView
+            android:id="@+id/n_trolley"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="14sp"
+            android:text="Number of Trolley"/>
+
+        <TextView
+            android:id="@+id/n_container"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="14sp"
+            android:text="Number of Trolley"/>
+        <TextView
+            android:id="@+id/n_bag"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="14sp"
+            android:text="Number of Trolley"/>
+
+        <TextView
+            android:id="@+id/amount"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="14sp"
+            android:text="Number of Trolley"/>
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Train Details:"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="monospace"/>
+
+        <TextView
+            android:id="@+id/train_name"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="14sp"
+            android:text="Train Name : Ajantha Express"/>
+        <TextView
+            android:id="@+id/arrival_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="14sp"
+            android:text="Arrival Time: "/>
+        <TextView
+            android:id="@+id/order_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="14sp"
+            android:text="Date : "/>
+
+        <TextView
+            android:id="@+id/order_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Order Complete Status: Pending"
+            android:textColor="@color/red"
+            android:paddingLeft="20dp"/>
+
+        <LinearLayout
+            android:id="@+id/reachToCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan QR of customer to start the order"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/callCustomer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="Call Customer"
+                    android:textSize="12sp"
+                    android:drawableEnd="@drawable/ic_phone"
+                    android:backgroundTint="@color/white"/>
+
+                <Button
+                    android:id="@+id/scanCustQR"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="Scan QR"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="25dp"
+                    android:drawableEnd="@drawable/ic_baseline_qr_code_scanner_24"
+                    android:backgroundTint="@color/white"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
