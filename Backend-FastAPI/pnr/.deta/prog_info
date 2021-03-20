@@ -1,0 +1,1 @@
+{"id":"11521fcf-e3c2-4ddc-899e-0135fe53f01c","space":3263,"runtime":"python3.7","name":"pnr","path":"1ldf3h","project":"a0exycq6","account":"144798365827","region":"ap-southeast-1","deps":["fastapi","pydantic","uvicorn","beautifulsoup4","requests"],"envs":null,"public":true,"log_level":"debug","cron":"","reload_deps":false}
