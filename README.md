@@ -68,3 +68,17 @@ Looking at many ongoing services outside the railway stations  like Swiggy, Zoma
         Architecture: MVVM
         
         Landing Page : HTML, CSS, Javascript
+        
+# ScreenShots
+
+### Splash Screen and On Boarding parts
+<img src="./Screenshots/home%20(2).png" width="200" height="400"> <img src="./Screenshots/liquid_animation_2.png" width="200" height="400"> <img src="./Screenshots/liquid_animation_1.png" width="200" height="400"> <img src="./Screenshots/liquid_animation_3.png" width="200" height="400">
+
+### User Dashboard and features
+<img src="./Screenshots/cust.png" width="200" height="400"> <img src="./Screenshots/booking.png" width="200" height="400"> <img src="./Screenshots/wheelchair.png" width="200" height="400"> <img src="./Screenshots/payment.png" width="200" height="400">
+
+### Other features
+<img src="./Screenshots/fares%20of%20coolie.png" width="200" height="400"> <img src="./Screenshots/all%20bookings.png" width="200" height="400"> <img src="./Screenshots/orderdetaisl.png" width="200" height="400"> 
+
+### Coolie Dashboard and features
+<img src="./Screenshots/coolie.png" width="200" height="400"> <img src="./Screenshots/cooliebkngspending.png" width="200" height="400"> <img src="./Screenshots/support.png" width="200" height="400">
