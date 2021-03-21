@@ -4,6 +4,24 @@
 
 <b>A full-stack app that makes the job of both coolie and user easier. Now any user can simply click the button to book a coolie without any hustle.</b>
 
+
+# Instructions to run application:
+
+
+      1. Go Ahead and download the apk from the link below.
+      
+      2. Install the downloaded apk on your phone.
+
+      3. Register yourself and experience the services. 
+
+      4. To run the app in debug mode you need to do the following.
+ 
+      5. Clone this repository on your desired directory.
+      
+      6. Head up to Android Studio and then Open an Exiting Project.
+      
+      7. Select this project directory and click on the run button.
+
 # Key-Features
 
       1. A very simple user-friendly UI that can be handled easily by both coolie user.
