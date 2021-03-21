@@ -86,3 +86,23 @@ Looking at many ongoing services outside the railway stations  like Swiggy, Zoma
 
 ### Coolie Dashboard and features
 <img src="./Screenshots/coolie.png" width="200" height="400"> <img src="./Screenshots/cooliebkngspending.png" width="200" height="400"> <img src="./Screenshots/support.png" width="200" height="400">
+
+
+# Links:
+* [Download App](https://drive.google.com/file/d/18ht1HC51PrYMc1J1ALRM5BfZOIOy_N8n/view?usp=sharing)
+
+* [View Video](https://youtu.be/s6y09lJDlaM)
+
+* [View Landing Page](https://moit-bytes.github.io/Filling_Gaps/)
+
+* [Backend](https://github.com/moit-bytes/Filling_Gaps/tree/main/Backend-FastAPI)
+
+
+## Contributors ✨
+
+Reach out to us, if you liked this :)
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/moit-bytes"><img src="https://avatars1.githubusercontent.com/u/53662024" width="100px;" alt=""/><br /><sub><b>Mohit Kumar</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/yuvaraj-06"><img src="https://avatars.githubusercontent.com/u/59510075?s=460&u=a616e4699b7ec42d662d05178568c193f2f44c45&v=4" width="100px;" alt=""/><br /><sub><b>Yuvaraj T</b></sub></a><br /></td>
+</table>
