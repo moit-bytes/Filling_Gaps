@@ -43,7 +43,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class CoolieBookingActivity extends AppCompatActivity implements PaymentResultListener
 {
-    String FCM_AUTH_KEY = "Bearer AAAA-80VN-c:APA91bEOvr_xPw-725fhcnM2gD3Uki2B2GVWQAelKxRDIr2M-tMKP6IyXAPw7ZwfRHXEms20a_e8iIb9FLEBO1GLRGdr40TB2qPUAjhQ_7b-xCU7SgyHmXx3UjhTV7ggk-hzNTGJWqrE";
+    String FCM_AUTH_KEY = "YOUR_CLOUD_SERVER_KEY"
     Button btPay;
     TextView type, coolie_name, n_trolley, n_container, n_bag, n_wheelchair, order_date,
     order_time, station_name, amount, train_name;
@@ -191,7 +191,7 @@ public class CoolieBookingActivity extends AppCompatActivity implements PaymentR
             public void onClick(View v)
             {
                 Checkout checkout = new Checkout();
-                checkout.setKeyID("rzp_test_7gmkhm9HYQAJbt");
+                checkout.setKeyID("YOUR_RAZORPAY_API_KEY");
                 checkout.setImage(R.drawable.ic_razorpay);
                 JSONObject jsonObject = new JSONObject();
                 try
