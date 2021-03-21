@@ -1,0 +1,1 @@
+{"id":"93b815b9-b91b-4f5f-aba7-59a941ac5a6a","space":3263,"runtime":"python3.7","name":"otpapi","path":"9433xu","project":"a0exycq6","account":"144798365827","region":"ap-southeast-1","deps":["fastapi","pydantic","uvicorn","python-multipart"],"envs":null,"public":true,"log_level":"debug","cron":"","reload_deps":false}
