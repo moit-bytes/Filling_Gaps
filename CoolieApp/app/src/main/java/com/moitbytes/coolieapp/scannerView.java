@@ -73,7 +73,9 @@ public class scannerView extends AppCompatActivity implements ZXingScannerView.R
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().
                 getReference("users");
         Query checkUser = databaseReference.orderByChild("phone").equalTo(usr_phone);
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        checkUser.addListenerForSingleValueEvent(new ValueEventListener()
+        {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
@@ -83,10 +85,15 @@ public class scannerView extends AppCompatActivity implements ZXingScannerView.R
                             getValue(Float.class);
                     Integer tot_order = snapshot.child(usr_phone).child("tot_orders").
                             getValue(Integer.class);
+                    databaseReference.child(usr_phone).child("order_completed").setValue(true);
                     databaseReference.child(usr_phone).child("tot_orders").setValue(
                             tot_order+1);
                     databaseReference.child(usr_phone).child("wallet_balance").setValue(
                             amount1+amount);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putFloat("wallet_balance", amount1+amount);
+                    editor.putInt("tot_orders", tot_order+1);
+                    editor.apply();
                 }
             }
 
@@ -106,6 +113,7 @@ public class scannerView extends AppCompatActivity implements ZXingScannerView.R
 
                     Integer tot_order = snapshot.child(customer_phone).child("tot_orders").
                             getValue(Integer.class);
+                    databaseReference.child(usr_phone).child("order_completed").setValue(true);
                     databaseReference.child(customer_phone).child("tot_orders").setValue(
                             tot_order+1);
 
@@ -119,10 +127,6 @@ public class scannerView extends AppCompatActivity implements ZXingScannerView.R
         });
         Toast.makeText(this,
                 "Order Completed", Toast.LENGTH_LONG).show();
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putFloat("wallet_balance", 0.0f);
-        editor.putInt("tot_orders", 0);
-        editor.apply();
         Intent i = new Intent(scannerView.this, Coolie_Dashboard.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);

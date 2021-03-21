@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/coolie_user_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Register.Coolie_User_Details">
+
+    <ImageButton
+        android:id="@+id/register_go_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_left_arrow"
+        android:padding="10dp"
+        android:backgroundTint="@color/white"
+        />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hello,"
+                android:textSize="38sp"
+                android:fontFamily="monospace"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingTop="5dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please complete your Profile to finish up your Registration"
+                android:textSize="15sp"
+                android:paddingTop="3dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="#DD000000"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:hint="OTP"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/userOTP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:padding="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center"/>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter First Name"
+                android:layout_marginTop="4dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Last Name"
+                android:layout_marginTop="4dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Are You A Coolie?"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="monospace"
+                />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:id="@+id/CoolieRadio">
+
+                <RadioButton
+                    android:onClick="OnYesSelect"
+                    android:id="@+id/coolieYes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/radio_selector"
+                    android:button="@color/transparent"
+                    android:elevation="5dp"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="Yes"
+                    android:textColor="@drawable/radio_text_color"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:onClick="OnNoSelect"
+                    android:id="@+id/coolieNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/radio_selector"
+                    android:button="@color/transparent"
+                    android:elevation="5dp"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="No"
+                    android:textColor="@drawable/radio_text_color"
+                    android:textSize="12sp" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/selectTrainSwitch"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Please select the Station where you work"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="2dp"
+                    />
+
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text_view"
+                    android:hint="Select Trains"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:drawableEnd="@drawable/ic_dropdown"
+                    android:background="@android:drawable/editbox_background"
+                    />
+
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:drawableStart="@drawable/ic_rupee"
+                    android:id="@+id/rateTrolley"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your rate for one Trolley"
+                    android:textSize="14sp"
+                    android:padding="10dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_marginTop="2dp"/>
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:drawableStart="@drawable/ic_rupee"
+                    android:id="@+id/rateContainer"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your rate for one Container"
+                    android:textSize="14sp"
+                    android:padding="10dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_marginTop="2dp"/>
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:drawableStart="@drawable/ic_rupee"
+                    android:id="@+id/rateBag"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your rate for one Bag"
+                    android:textSize="14sp"
+                    android:padding="10dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_marginTop="2dp"/>
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:onClick="SendDetailsToFirebase"
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                app:layout_constraintVertical_bias="0"
+                />
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -1,8 +1,5 @@
 package com.moitbytes.coolieapp.User;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,13 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.moitbytes.coolieapp.Coolie.Coolie_Order_Pojo;
 import com.moitbytes.coolieapp.R;
@@ -43,6 +43,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class CoolieBookingActivity extends AppCompatActivity implements PaymentResultListener
 {
+    String FCM_AUTH_KEY = "Bearer AAAA-80VN-c:APA91bEOvr_xPw-725fhcnM2gD3Uki2B2GVWQAelKxRDIr2M-tMKP6IyXAPw7ZwfRHXEms20a_e8iIb9FLEBO1GLRGdr40TB2qPUAjhQ_7b-xCU7SgyHmXx3UjhTV7ggk-hzNTGJWqrE";
     Button btPay;
     TextView type, coolie_name, n_trolley, n_container, n_bag, n_wheelchair, order_date,
     order_time, station_name, amount, train_name;
@@ -274,6 +275,7 @@ public class CoolieBookingActivity extends AppCompatActivity implements PaymentR
         pd.setMessage("Please Wait! While we check your payment!");
         pd.setCancelable(false);
         pd.show();
+        String user_fcm = preferences.getString("fcmToken", "");
         if(book_type.equals("coolie"))
         {
             //Coolie and User
@@ -343,6 +345,93 @@ public class CoolieBookingActivity extends AppCompatActivity implements PaymentR
                     pd.dismiss();
                 }
             });
+
+
+
+            //FCM Send Notification
+            String base_url_1 = "https://fcm.googleapis.com";
+
+            mediaType = MediaType.parse("application/json");
+            body = RequestBody.create(mediaType, "{\r\n \"to\" : " +
+                    "\""+user_fcm+"\",\r\n " +
+                    "\"notification\" : {\r\n     " +
+                    "\"body\" : \""+usr_msg+"\",\r\n     " +
+                    "\"title\": \"Pick Up Confirmed\"\r\n }\r\n}");
+
+            String conType = "application/json";
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(base_url_1)
+                    .addConverterFactory(ScalarsConverterFactory.create()).build();
+
+            service = retrofit.create(RetrofitApiService.class);
+            Call<String> response1 = service.sendFcmToken(conType, FCM_AUTH_KEY,
+                    body);
+
+            response1.enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response)
+                {
+
+                }
+
+                @Override
+                public void onFailure(Call<String> call, Throwable t)
+                {
+
+                }
+            });
+
+
+            //Send to Coolie
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().
+                    getReference("fcmTokens");
+
+            Query checkUser = databaseReference.orderByChild("phone").equalTo(coolie_phone);
+            checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot)
+                {
+                    if(snapshot.exists())
+                    {
+                        String coolie_fcm = snapshot.child(coolie_phone).child("fcmToken").
+                                getValue(String.class);
+                        MediaType mediaType = MediaType.parse("application/json");
+                        RequestBody body = RequestBody.create(mediaType, "{\r\n \"to\" : " +
+                                "\""+coolie_fcm+"\",\r\n " +
+                                "\"notification\" : {\r\n     " +
+                                "\"body\" : \""+coolie_msg+"\",\r\n     " +
+                                "\"title\": \"You got a new order!\"\r\n }\r\n}");
+
+                        retrofit = new Retrofit.Builder()
+                                .baseUrl(base_url_1)
+                                .addConverterFactory(ScalarsConverterFactory.create()).build();
+
+                        RetrofitApiService service = retrofit.create(RetrofitApiService.class);
+                        Call<String> response2 = service.sendFcmToken(conType, FCM_AUTH_KEY,
+                                body);
+
+                        response2.enqueue(new Callback<String>() {
+                            @Override
+                            public void onResponse(Call<String> call, Response<String> response) {
+                                pd.dismiss();
+                            }
+
+                            @Override
+                            public void onFailure(Call<String> call, Throwable t) {
+
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+
         }
         else
         {
@@ -358,7 +447,7 @@ public class CoolieBookingActivity extends AppCompatActivity implements PaymentR
 
             String usr_msg = "Hi "+first_name+" "+last_name+". Your order has been confirmed."+
                     " Below are the details: "+ "Your "+b_n_wheelchair+" wheelchairs are ready at the station."+
-                    "Our person would reach out to you before 15 minutes of your arrival"+
+                    "Our person would reach out to you before 15 minutes of arrival"+
                     " For any queries use support. Thanks--Team Coolie App";
 
             body = RequestBody.create
@@ -382,12 +471,45 @@ public class CoolieBookingActivity extends AppCompatActivity implements PaymentR
                 @Override
                 public void onResponse(Call<String> call, Response<String> response)
                 {
-                    pd.dismiss();
+
                 }
 
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
                     pd.dismiss();
+                }
+            });
+
+
+            String base_url_1 = "https://fcm.googleapis.com";
+
+            mediaType = MediaType.parse("application/json");
+            body = RequestBody.create(mediaType, "{\r\n \"to\" : " +
+                    "\""+user_fcm+"\",\r\n " +
+                    "\"notification\" : {\r\n     " +
+                    "\"body\" : \""+usr_msg+"\",\r\n     " +
+                    "\"title\": \"Wheelchairs Confirmed\"\r\n }\r\n}");
+
+            String conType = "application/json";
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(base_url_1)
+                    .addConverterFactory(ScalarsConverterFactory.create()).build();
+
+            service = retrofit.create(RetrofitApiService.class);
+            Call<String> response1 = service.sendFcmToken(conType, FCM_AUTH_KEY,
+                    body);
+
+            response1.enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response)
+                {
+                    pd.dismiss();
+                }
+
+                @Override
+                public void onFailure(Call<String> call, Throwable t)
+                {
+
                 }
             });
 

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.moitbytes.coolieapp.Coolie.Coolie_Dashboard;
 import com.moitbytes.coolieapp.UI.SplashScreen;
 import com.moitbytes.coolieapp.User.User_Dashboard;
@@ -35,6 +37,7 @@ import com.moitbytes.coolieapp.User.User_Dashboard;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -455,6 +458,9 @@ public class User_Profile extends AppCompatActivity
         pd.setMessage("Logging Out User!");
         pd.setCancelable(false);
         pd.show();
+        MyTask task = new MyTask();
+        task.execute();
+        FirebaseInstanceId.getInstance().getToken();
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.apply();
@@ -463,5 +469,23 @@ public class User_Profile extends AppCompatActivity
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         finish();
+    }
+}
+
+class MyTask extends AsyncTask<Void, Void, String>
+{
+
+    @Override
+    protected String doInBackground(Void... voids)
+    {
+        try
+        {
+            FirebaseInstanceId.getInstance().deleteInstanceId();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
