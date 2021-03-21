@@ -52,3 +52,19 @@ The pandemic has made us all learn many things. Whether it's studies, food order
 
 With digitalization and the stablishment of free wifi and services at railway stations, we are moving towards the path of hightech railways stations. The availablity of 24/7 internet facility makes the task for the coolie easier. They just need a smartphone availability and they are all set to operate the services provided by the app.
 Looking at many ongoing services outside the railway stations  like Swiggy, Zomato, Urban Clap, Uber, and Ola we feel that someday it's possible to get a facility like these into the stations as well.
+
+# Tech stack and Modules used:
+
+        App: Java, XML, Firebase(Real-time Database, Authentication, Cloud Messaging).
+        
+        Payment Gateway: RazorPay
+        
+        Tools Used: Android Studio and Postman
+        
+        Libraries Used: Retrofit, OkHttp, LottieFiles, Material.io
+        
+        API Used: Fast-API and Google FCM API
+        
+        Architecture: MVVM
+        
+        Landing Page : HTML, CSS, Javascript
