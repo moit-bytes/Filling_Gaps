@@ -6,7 +6,7 @@
 
 # Project Demo
 
-[![Youtube](https://img.youtube.com/vi/s6y09lJDlaM/0.jpg)](https://youtu.be/s6y09lJDlaM)
+[![Youtube](https://github.com/yuvaraj-06/Filling_Gaps/blob/main/WhatsApp%20Image%202021-03-28%20at%2011.12.28%20AM.jpeg)](https://youtu.be/opxH_B0yFKo)
 
 
 # Instructions to run application:
